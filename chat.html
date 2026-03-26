@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>聊天軍師 — CrushRadar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- 爱心画布背景 -->
+    <canvas id="heart-canvas"></canvas>
+
+    <!-- 导航 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                CrushRadar
+                <span>愛情透視</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="personality.html">性格解碼</a></li>
+                <li><a href="chat.html" class="active">聊天軍師</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content-section">
+
+        <div class="back-nav">
+            <a href="personality.html" class="back-link">← 返回性格解碼</a>
+        </div>
+
+        <div class="section-header">
+            <div class="section-tag">💬 第三步</div>
+            <h2>聊天話術推薦</h2>
+            <p>根據情報和性格，生成最佳切入話題</p>
+        </div>
+
+        <!-- 话题分类 -->
+        <div class="sub-section">
+            <h3>🔥 有效話術（點擊複製）</h3>
+
+            <div class="script-list">
+                <div class="script-item" data-text="「你那張在富士山拍的照，是在東京出發的嗎？我也在計劃日本行程，想問問你的路線~」">
+                    <span class="script-tag">🌄 旅行切入</span>
+                    <p>「你那張在富士山拍的照，是在東京出發的嗎？我也在計劃日本行程，想問問你的路線~」</p>
+                    <button class="copy-btn">複製</button>
+                </div>
+
+                <div class="script-item" data-text="「我看到你經常去健身，你主要做什麼訓練？我最近在培養這個習慣，想找個規律」">
+                    <span class="script-tag">💪 健身切入</span>
+                    <p>「我看到你經常去健身，你主要做什麼訓練？我最近在培養這個習慣，想找個規律」</p>
+                    <button class="copy-btn">複製</button>
+                </div>
+
+                <div class="script-item" data-text="「終於知道中環哪間咖啡好喝了！之前看過你 post 那間，一直想試」">
+                    <span class="script-tag">☕ 咖啡切入</span>
+                    <p>「終於知道中環哪間咖啡好喝了！之前看過你 post 那間，一直想試」</p>
+                    <button class="copy-btn">複製</button>
+                </div>
+
+                <div class="script-item" data-text="「你那張照片是在哪裡拍的？色調好特別，我也想學這種風格」">
+                    <span class="script-tag">📷 攝影切入</span>
+                    <p>「你那張照片是在哪裡拍的？色調好特別，我也想學這種風格」</p>
+                    <button class="copy-btn">複製</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 话题升级阶梯 -->
+        <div class="sub-section">
+            <h3>🗣️ 話題升級階梯</h3>
+            <p class="section-hint">從淺到深，根據關係進展選擇話題</p>
+
+            <div class="ladder-container">
+                <div class="ladder-level">
+                    <div class="ladder-header">淺層話題</div>
+                    <ul>
+                        <li>☕ 咖啡好不好喝</li>
+                        <li>🏋️ 今天健身了嗎</li>
+                        <li>✈️ 最近去哪玩了</li>
+                        <li>🎬 最近看什麼電影</li>
+                    </ul>
+                </div>
+                <div class="ladder-arrow">→</div>
+                <div class="ladder-level">
+                    <div class="ladder-header">中層話題</div>
+                    <ul>
+                        <li>💭 理想的生活方式</li>
+                        <li>🎯 未來半年目標</li>
+                        <li>👨‍👩‍👧 家人的相處模式</li>
+                        <li>💼 對工作的想法</li>
+                    </ul>
+                </div>
+                <div class="ladder-arrow">→</div>
+                <div class="ladder-level">
+                    <div class="ladder-header">深度話題</div>
+                    <ul>
+                        <li>💕 過去的感情經歷</li>
+                        <li>🌟 內心最深的恐懼</li>
+                        <li>🤔 對伴侶的核心需求</li>
+                        <li>💞 對未來關係的期待</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ladder-tip">
+                💡 提示：什麼時候可以問更深話題？觀察對方回覆的長度和主動性。如果他開始問你同樣的問題，代表他也在對你投資了！
+            </div>
+        </div>
+
+        <!-- 要避免的话 -->
+        <div class="sub-section avoid-section">
+            <h3>🚫 千萬不要這樣說</h3>
+
+            <div class="script-list avoid">
+                <div class="script-item avoid">
+                    <span class="script-tag danger">❌ 致命錯誤</span>
+                    <p>「在幹嘛？」</p>
+                    <span class="avoid-reason">太空白，沒有切入點，容易已讀不回</span>
+                </div>
+
+                <div class="script-item avoid">
+                    <span class="script-tag danger">❌ 致命錯誤</span>
+                    <p>「你照片好帥/好漂亮」</p>
+                    <span class="avoid-reason">太表面，像粉絲留言，讓你看起來在仰視對方</span>
+                </div>
+
+                <div class="script-item avoid">
+                    <span class="script-tag danger">❌ 致命錯誤</span>
+                    <p>「你有沒有男朋友/女朋友？」</p>
+                    <span class="avoid-reason">太直接，初期不要問私人感情問題</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 完成提示 -->
+        <div class="complete-section">
+            <div class="complete-icon">🎉</div>
+            <h3>恭喜完成戀愛訓練！</h3>
+            <p>記住：真心比話術重要，這只是讓你更好的工具</p>
+            <a href="index.html" class="btn-primary">🔄 重新開始</a>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">CrushRadar · 愛情透視</div>
+            <p class="footer-copy">© 2026 CrushRadar</p>
+        </div>
+    </footer>
+
+    <script src="js/hearts.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        // 复制功能
+        document.querySelectorAll('.copy-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const text = this.closest('.script-item').getAttribute('data-text');
+
+                navigator.clipboard.writeText(text).then(function() {
+                    btn.textContent = '✅ 已複製';
+                    btn.style.background = 'var(--gold)';
+
+                    // 爱心爆发
+                    if (window.heartBurst) {
+                        const rect = btn.getBoundingClientRect();
+                        window.heartBurst(rect.left + rect.width / 2, rect.top, 10);
+                    }
+
+                    setTimeout(function() {
+                        btn.textContent = '複製';
+                        btn.style.background = '';
+                    }, 2000);
+                }).catch(function() {
+                    btn.textContent = '❌ 失敗';
+                    setTimeout(function() {
+                        btn.textContent = '複製';
+                    }, 2000);
+                });
+            });
+        });
+
+        // 滚动显示动画
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.sub-section').forEach(function(section) {
+            observer.observe(section);
+        });
+
+    })();
+    </script>
+</body>
+</html>

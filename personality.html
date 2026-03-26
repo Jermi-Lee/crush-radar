@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>性格解碼 — CrushRadar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- 爱心画布背景 -->
+    <canvas id="heart-canvas"></canvas>
+
+    <!-- 导航 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                CrushRadar
+                <span>愛情透視</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="personality.html" class="active">性格解碼</a></li>
+                <li><a href="chat.html">聊天軍師</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="content-section">
+
+        <div class="back-nav">
+            <a href="index.html" class="back-link">← 返回首頁</a>
+        </div>
+
+        <!-- MBTI选择 -->
+        <div class="sub-section">
+            <div class="section-header">
+                <div class="section-tag">🧠 第二步</div>
+                <h2>選擇 MBTI 性格</h2>
+                <p>點擊選擇你的 MBTI 和觀察對象的 MBTI</p>
+            </div>
+
+            <!-- 简化版MBTI网格（只显示8种常见类型） -->
+            <div class="mbti-simple-grid">
+                <div class="mbti-btn" data-mbti="ENFJ">ENFJ</div>
+                <div class="mbti-btn" data-mbti="INTJ">INTJ</div>
+                <div class="mbti-btn" data-mbti="INFP">INFP</div>
+                <div class="mbti-btn" data-mbti="ISTP">ISTP</div>
+                <div class="mbti-btn" data-mbti="ENTP">ENTP</div>
+                <div class="mbti-btn" data-mbti="ESFP">ESFP</div>
+                <div class="mbti-btn" data-mbti="ENFP">ENFP</div>
+                <div class="mbti-btn" data-mbti="ISFJ">ISFJ</div>
+                <div class="mbti-btn" data-mbti="INFJ">INFJ</div>
+                <div class="mbti-btn" data-mbti="INTP">INTP</div>
+                <div class="mbti-btn" data-mbti="ESTJ">ESTJ</div>
+                <div class="mbti-btn" data-mbti="ESFJ">ESFJ</div>
+            </div>
+
+            <p class="mbti-more-hint">其他類型滾動查看 →</p>
+
+            <!-- 完整MBTI网格 -->
+            <div class="mbti-full-grid">
+                <div class="mbti-type" data-mbti="INTJ">INTJ</div>
+                <div class="mbti-type" data-mbti="INTP">INTP</div>
+                <div class="mbti-type" data-mbti="ENTJ">ENTJ</div>
+                <div class="mbti-type" data-mbti="ENTP">ENTP</div>
+                <div class="mbti-type" data-mbti="INFJ">INFJ</div>
+                <div class="mbti-type" data-mbti="INFP">INFP</div>
+                <div class="mbti-type" data-mbti="ENFJ">ENFJ</div>
+                <div class="mbti-type" data-mbti="ENFP">ENFP</div>
+                <div class="mbti-type" data-mbti="ISTJ">ISTJ</div>
+                <div class="mbti-type" data-mbti="ISFJ">ISFJ</div>
+                <div class="mbti-type" data-mbti="ESTJ">ESTJ</div>
+                <div class="mbti-type" data-mbti="ESFJ">ESFJ</div>
+                <div class="mbti-type" data-mbti="ISTP">ISTP</div>
+                <div class="mbti-type" data-mbti="ISFP">ISFP</div>
+                <div class="mbti-type" data-mbti="ESTP">ESTP</div>
+                <div class="mbti-type" data-mbti="ESFP">ESFP</div>
+            </div>
+        </div>
+
+        <!-- 配对分析 -->
+        <div class="sub-section" id="match-section">
+            <div class="section-header">
+                <div class="section-tag">💕 配對結果</div>
+                <h2>MBTI 配對分析</h2>
+                <p>選擇雙方 MBTI 後自動生成報告</p>
+            </div>
+
+            <!-- 选择显示 -->
+            <div class="match-display">
+                <div class="match-box user">
+                    <span class="match-label">你的</span>
+                    <span class="match-value" id="user-mbti">?</span>
+                </div>
+                <div class="match-heart">💕</div>
+                <div class="match-box crush">
+                    <span class="match-label">觀察對象</span>
+                    <select id="crush-mbti-select">
+                        <option value="">選擇 ▼</option>
+                        <option value="INTJ">INTJ</option>
+                        <option value="INTP">INTP</option>
+                        <option value="ENTJ">ENTJ</option>
+                        <option value="ENTP">ENTP</option>
+                        <option value="INFJ">INFJ</option>
+                        <option value="INFP">INFP</option>
+                        <option value="ENFJ">ENFJ</option>
+                        <option value="ENFP">ENFP</option>
+                        <option value="ISTJ">ISTJ</option>
+                        <option value="ISFJ">ISFJ</option>
+                        <option value="ESTJ">ESTJ</option>
+                        <option value="ESFJ">ESFJ</option>
+                        <option value="ISTP">ISTP</option>
+                        <option value="ISFP">ISFP</option>
+                        <option value="ESTP">ESTP</option>
+                        <option value="ESFP">ESFP</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 配对报告 -->
+            <div id="match-report" class="match-report" style="display: none;">
+                <div class="match-score">
+                    <div class="score-circle">
+                        <span id="score-value">--</span>
+                        <span class="score-label">%</span>
+                    </div>
+                    <div class="score-title" id="score-title">相配度</div>
+                </div>
+
+                <div class="match-cards">
+                    <div class="match-card sweet">
+                        <h4>💕 甜蜜點</h4>
+                        <ul id="sweet-points"></ul>
+                    </div>
+                    <div class="match-card warning">
+                        <h4>⚠️ 警戒線</h4>
+                        <ul id="warning-points"></ul>
+                    </div>
+                    <div class="match-card tips">
+                        <h4>💡 攻略提示</h4>
+                        <ul id="tips-points"></ul>
+                    </div>
+                    <div class="match-card date">
+                        <h4>🎯 適合約會</h4>
+                        <ul id="date-points"></ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 继续按钮 -->
+            <div class="continue-actions" style="display: none;" id="continue-actions">
+                <a href="chat.html" class="btn-primary">💬 前往聊天攻略 →</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">CrushRadar · 愛情透視</div>
+            <p class="footer-copy">© 2026 CrushRadar</p>
+        </div>
+    </footer>
+
+    <script src="js/hearts.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        // 配对数据
+        const matchData = {
+            'ENFJ-INFP': { score: 92, title: '🌟 天作之合', sweet: ['雙方都是理想主義者', 'ENFJ 帶動 INFP 行動力', '喜歡深度交流'], warning: ['ENFJ 太快表達情感', 'INFP 需要獨處時間'], tips: ['不要急確認關係', '尊重對方節奏', '書面訊息更安心'], date: ['安靜咖啡店深聊', '看展覽、聽音樂', '夜間散步'] },
+            'ENFP-INTJ': { score: 88, title: '💫 靈魂伴侶', sweet: ['互補型組合', '一起探索可能性', 'INTJ 欣賞 ENFP 熱情'], warning: ['INTJ 需要獨處', 'ENFP 怕被束縛'], tips: ['給彼此空間', '發揮各自優勢', '多溝通'], date: ['創意活動', '旅行探索', '咖啡廳聊天'] },
+            'INFJ-ENFP': { score: 85, title: '💘 理想拍檔', sweet: ['深度連接', 'INFJ 引導 ENFP', '共同追尋意義'], warning: ['雙方都不擅長處理衝突', '容易過度理想化'], tips: ['主動表達感受', '學會接受批評', '保持耐心'], date: ['藝術展覽', '深夜長談', '自然風景'] },
+            'ENTJ-INFP': { score: 83, title: '💕 相輔相成', sweet: ['ENTJ 彌補 INFP 執行力', '共同成長型', '尊重彼此'], warning: ['ENTJ 過於強勢', 'INFP 容易受傷'], tips: ['ENTJ 放慢腳步', '多聆聽 INFP 感受'], date: ['安靜餐廳', '博物館', '海邊漫步'] },
+            'ISFJ-ESFP': { score: 82, title: '💖 溫馨組合', sweet: ['ISFJ 照顧 ESFP', 'ESFP 帶來樂趣', '慢熱但穩定'], warning: ['ESFP 愛熱鬧', 'ISFJ 需要安靜'], tips: ['平衡社交和獨處', 'ISFJ 勇敢表達需求'], date: ['户外活動', '音樂節', '家庭聚會'] },
+            'default': { score: 75, title: '💕 潛力組合', sweet: ['需要時間磨合', '發揮各自優勢', '多了解對方'], warning: ['相處時間不足', '需要更多溝通'], tips: ['保持開放心态', '勇於嘗試新事物', '多創造共同回憶'], date: ['咖啡廳見面', '一起做活動', '日常相處'] }
+        };
+
+        let userMBTI = null;
+
+        // MBTI按钮点击
+        document.querySelectorAll('.mbti-btn, .mbti-type').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const mbti = this.getAttribute('data-mbti');
+
+                // 清除其他选中
+                document.querySelectorAll('.mbti-btn, .mbti-type').forEach(b => b.classList.remove('selected'));
+
+                // 高亮选中
+                this.classList.add('selected');
+                userMBTI = mbti;
+
+                // 更新显示
+                document.getElementById('user-mbti').textContent = mbti;
+
+                // 如果对方MBTI也选了，显示报告
+                const crushMBTI = document.getElementById('crush-mbti-select').value;
+                if (crushMBTI) {
+                    showMatchReport(userMBTI, crushMBTI);
+                }
+            });
+        });
+
+        // 对方MBTI选择
+        document.getElementById('crush-mbti-select').addEventListener('change', function() {
+            if (userMBTI && this.value) {
+                showMatchReport(userMBTI, this.value);
+            }
+        });
+
+        // 显示配对报告
+        function showMatchReport(m1, m2) {
+            const key = m1 + '-' + m2;
+            const revKey = m2 + '-' + m1;
+            const data = matchData[key] || matchData[revKey] || matchData['default'];
+
+            // 显示报告区域
+            document.getElementById('match-report').style.display = 'block';
+            document.getElementById('continue-actions').style.display = 'block';
+
+            // 更新分数
+            document.getElementById('score-value').textContent = data.score;
+            document.getElementById('score-title').textContent = data.title;
+
+            // 更新列表
+            document.getElementById('sweet-points').innerHTML = data.sweet.map(s => '<li>✨ ' + s + '</li>').join('');
+            document.getElementById('warning-points').innerHTML = data.warning.map(w => '<li>⚠️ ' + w + '</li>').join('');
+            document.getElementById('tips-points').innerHTML = data.tips.map(t => '<li>💡 ' + t + '</li>').join('');
+            document.getElementById('date-points').innerHTML = data.date.map(d => '<li>🎯 ' + d + '</li>').join('');
+
+            // 滚动到报告
+            document.getElementById('match-report').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // 触发爱心爆发
+            if (window.heartBurst) {
+                window.heartBurst(window.innerWidth / 2, window.innerHeight / 2, 20);
+            }
+        }
+
+    })();
+    </script>
+</body>
+</html>

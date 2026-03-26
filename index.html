@@ -1,11 +1,145 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <title>Crush Radar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrushRadar · 愛情透視</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>✅ Crush Radar</h1>
-  <p>这是一个测试网站，部署成功！</p>
+
+    <!-- 爱心画布背景 -->
+    <canvas id="heart-canvas"></canvas>
+
+    <!-- 导航 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                CrushRadar
+                <span>愛情透視</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">首頁</a></li>
+                <li><a href="personality.html">性格解碼</a></li>
+                <li><a href="chat.html">聊天軍師</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主页内容 -->
+    <div class="landing-container">
+
+        <!-- Hero区 -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-tag">💕 戀愛大作戰</div>
+                <h1 class="hero-title">
+                    知己知彼<br>
+                    <span class="highlight">愛情更順利</span>
+                </h1>
+                <p class="hero-subtitle">
+                    用心理學透視暗戀對象，從社交媒體解讀性格，<br>
+                    讓聊天不再詞窮。
+                </p>
+            </div>
+        </section>
+
+        <!-- 情报输入区 -->
+        <section class="intel-section">
+            <div class="section-header">
+                <div class="section-tag">🎯 第一步</div>
+                <h2>輸入約會目標情報</h2>
+                <p>粘貼對方社交媒體連結，開始分析</p>
+            </div>
+
+            <div class="intel-input-card">
+                <!-- 社交链接输入 -->
+                <div class="input-group">
+                    <input
+                        type="url"
+                        id="social-link-input"
+                        placeholder="粘貼 Instagram / 小紅書 主頁連結..."
+                        autocomplete="off"
+                    >
+                    <button id="analyze-btn" class="btn-primary">🔍 開始分析</button>
+                </div>
+                <p class="input-hint">支持 Instagram · 小紅書 · Facebook · LinkedIn</p>
+
+                <!-- 分隔符 -->
+                <div class="or-divider"><span>或</span></div>
+
+                <!-- 图片上传 -->
+                <div id="upload-area" class="upload-area">
+                    <div class="upload-icon">📸</div>
+                    <p>點擊上傳照片（最多9張）</p>
+                </div>
+                <input type="file" id="file-input" multiple accept="image/*" style="display: none;">
+            </div>
+        </section>
+
+        <!-- 情报结果展示 -->
+        <section class="result-section" id="result-section" style="display: none;">
+            <div class="result-card">
+                <h3>📊 情報分析報告</h3>
+
+                <div class="result-grid">
+                    <div class="result-item">
+                        <div class="result-icon">🎮</div>
+                        <div class="result-label">興趣圖譜</div>
+                        <div class="result-value" id="result-interests">健身 · 咖啡 · 旅行</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-icon">🌡️</div>
+                        <div class="result-label">情感溫度</div>
+                        <div class="result-value" id="result-emotion">空窗期</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-icon">🗺️</div>
+                        <div class="result-label">活動範圍</div>
+                        <div class="result-value" id="result-location">港島區</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-icon">📡</div>
+                        <div class="result-label">溝通風格</div>
+                        <div class="result-value" id="result-comm">間接型</div>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <a href="personality.html" class="btn-primary">🧠 前往性格解碼 →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 功能介绍 -->
+        <section class="features-section">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>情報分析</h3>
+                <p>從社交媒體解讀興趣愛好、生活型態</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>性格解碼</h3>
+                <p>MBTI 配對分析，了解你和她的契合度</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>聊天攻略</h3>
+                <p>定制話術推薦，不再詞窮</p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">CrushRadar · 愛情透視</div>
+            <p class="footer-copy">© 2026 CrushRadar</p>
+        </div>
+    </footer>
+
+    <script src="js/hearts.js"></script>
+    <script src="js/dating-intel.js"></script>
 </body>
 </html>
